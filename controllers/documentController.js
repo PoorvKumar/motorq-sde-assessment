@@ -121,7 +121,7 @@ exports.grantAccess=async (req,res)=>
       {
         return res
           .status(404)
-          .json({ error: "Document not found or unauthorized" });
+          .json({ error: "Document not found or you are unauthorized to access the document" });
       }
 
       // Validate and normalize the list of mobile numbers
