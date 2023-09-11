@@ -32,16 +32,20 @@ Follow these steps to set up and run the API:
 PORT            |  5000
 MONGODB_URI     |  "mongodb+srv://poorvkumar14:Ironman3000@motorq-sde.llahct9.mongodb.net/"
 
-Also, designed the approach for Shareable Links -> 
-Creating a model for ShareableLink with attributes: 
-->documentId(the document whose link), 
-->owner(document and link owner), 
-->linkToken(a unique token to identify which among multiple links for same document), 
-->accessedUsers(an array of users who have accessed the document using this link according to timestamp, whenever the signed in authorized user opens the link, he gets added in the array)
+Also, designed the approach for Shareable Links:
 
-a.) POST request to '/document/:documentId/shareable' to create a shareable link that will return the linkToken as json response, and this linkToken in valid for 24 hours
-b.) DELETE request to '/document/:documentId/shareable/linkToken' to delete this link
-c.) GET request to '/document/:documentId/shareable/linkToken/access-history' to see who all accessed this link
-c.) GET request to '/document/shareable/linkToken' to access the link through the token and view the document associated with the shareableLink associated with the linkToken
+- Creating a model for ShareableLink with attributes:
+  - `documentId` (the document whose link)
+  - `owner` (document and link owner)
+  - `linkToken` (a unique token to identify which among multiple links for the same document)
+  - `accessedUsers` (an array of users who have accessed the document using this link according to timestamp; whenever the signed-in authorized user opens the link, they get added to the array)
+
+a.) POST request to `/document/:documentId/shareable` to create a shareable link that will return the `linkToken` as a JSON response, and this `linkToken` is valid for 24 hours.
+
+b.) DELETE request to `/document/:documentId/shareable/linkToken` to delete this link.
+
+c.) GET request to `/document/:documentId/shareable/linkToken/access-history` to see who all accessed this link.
+
+d.) GET request to `/document/shareable/linkToken` to access the link through the token and view the document associated with the ShareableLink associated with the `linkToken`.
 
 
