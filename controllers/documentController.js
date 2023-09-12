@@ -1,4 +1,3 @@
-const { log } = require("console");
 const Document=require("../models/Document");
 
 //***************** DOCUMENT MANAGEMENT CONTROLLERS ***************** 
@@ -188,11 +187,18 @@ exports.viewDocument=async (req,res)=>
         return res.status(404).json({ error: "Document not found" });
       }
 
-      // Check if the authenticated user is the owner or has access to the document
+      // Check if the authenticated user is the owner or user is in sharedWith array to the document
       if (document.owner !== owner && !document.sharedWith.includes(owner)) 
       {
         return res.status(403).json({ error: "You do not have access to this document" });
       }
+
+      //so anyone who is an owner or is present in sharedWith array or have the shareable link have access to document
+      //so basically anyonne with shareable link can directly access the document no need to update the sharedWith array
+      //POST request for creating link
+      //we will create a model for shareable link -> documentId, owner, linkToken, accessedUsers(array)
+      //'/document/:documentId/shareable-link/link-token'
+
 
       // Return the document data (without any other keys or subkeys)
       const documentData = {
