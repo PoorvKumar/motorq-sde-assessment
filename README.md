@@ -11,6 +11,10 @@ https://motorq-sde-assessment.onrender.com
 ## Video Link
 https://youtu.be/AaU2dsYIVKw
 
+## Testing the API
+- Encode your "mobileNumber:password" using an online base64 encoder
+- In Postman pass Authorization header value as "Basic <encoded-value>" for testing all authenticated routes
+
 ## Setup
 
 Follow these steps to set up and run the API:
