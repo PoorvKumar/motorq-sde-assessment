@@ -35,7 +35,7 @@ Follow these steps to set up and run the API:
   Variable Name | Example Value
 --------------- |----------------
 PORT            |  5000
-MONGODB_URI     |  "mongodb+srv://poorvkumar14:Ironman3000@motorq-sde.llahct9.mongodb.net/"
+MONGODB_URI     |  database_link
 
 Also, designed the approach for Shareable Links:
 
